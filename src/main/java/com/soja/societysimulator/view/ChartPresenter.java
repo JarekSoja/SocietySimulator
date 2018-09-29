@@ -1,6 +1,5 @@
 package com.soja.societysimulator.view;
 
-import com.soja.societysimulator.model.CitizenRepository;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.VerticalLayout;

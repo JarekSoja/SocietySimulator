@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table
+@Table (name = "CITIZENS")
 public class Citizen {
 
 
@@ -17,8 +17,8 @@ public class Citizen {
     private int cash;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "SOCIETY_MODEL")
-    private SocietyModel societyModel;
+    @JoinColumn(name = "DOOMSDAY_BOOKS")
+    private DoomsdayBook doomsdayBook;
 
     public Citizen() {
     }
@@ -43,11 +43,15 @@ public class Citizen {
         this.cash = cash;
     }
 
-    public SocietyModel getSocietyModel() {
-        return societyModel;
+    public DoomsdayBook getDoomsdayBook() {
+        return doomsdayBook;
     }
 
-    public void setSocietyModel(SocietyModel societyModel) {
-        this.societyModel = societyModel;
+    public void setDoomsdayBook(DoomsdayBook doomsdayBook) {
+        this.doomsdayBook = doomsdayBook;
+    }
+
+    public Citizen copy () {
+        return new Citizen(this.cash);
     }
 }
