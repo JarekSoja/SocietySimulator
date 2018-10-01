@@ -3,6 +3,7 @@ package com.soja.societysimulator.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,10 @@ public class DoomsdayBook {
     )
     @Column (name = "DOOMSDAY_BOOK_CITIZENS")
     private Map<Integer, List<Citizen>> citizensByYear;
+
+    public DoomsdayBook() {
+        this.citizensByYear = new HashMap<>();
+    }
 
     public Long getId() {
         return id;
@@ -50,5 +55,16 @@ public class DoomsdayBook {
             clonedCitizens.add(c.copy());
         }
         return clonedCitizens;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        citizensByYear.forEach((k, v) -> {
+            sb.append("Year" + k + "\n");
+            v.stream()
+                    .forEach(c -> sb.append(c.toString()).append("\n"));
+        } );
+        return sb.toString();
     }
 }

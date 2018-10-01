@@ -57,4 +57,11 @@ public class Citizen {
     public Citizen copy () {
         return new Citizen(this.cash);
     }
+
+    @Override
+    public String toString() {
+        return "Citizen{" +
+                "cash=" + cash +
+                '}';
+    }
 }

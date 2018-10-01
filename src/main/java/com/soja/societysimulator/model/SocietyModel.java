@@ -1,8 +1,11 @@
 package com.soja.societysimulator.model;
 
+import com.vaadin.spring.annotation.SpringComponent;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@SpringComponent
 @Entity
 @Table (name = "SOCIETY_MODELS")
 public class SocietyModel {
@@ -76,5 +79,12 @@ public class SocietyModel {
 
     public void setYearsToOperate(int yearsToOperate) {
         this.yearsToOperate = yearsToOperate;
+    }
+
+    public void clear() {
+        setStartingCash(0);
+        setCashChangeByYear(0);
+        setPopulation(0);
+        setYearsToOperate(0);
     }
 }

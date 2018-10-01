@@ -12,6 +12,11 @@ public class TimeMachine {
     private DoomsdayBook doomsdayBook;
 
 
+    public TimeMachine(SocietyModel societyModel, DoomsdayBook doomsdayBook) {
+        this.societyModel = societyModel;
+        this.doomsdayBook = doomsdayBook;
+    }
+
     public void process() {
         int numberOfIterations = societyModel.getYearsToOperate();
         while (numberOfIterations > 0) {
