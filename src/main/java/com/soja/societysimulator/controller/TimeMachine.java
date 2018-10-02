@@ -21,12 +21,12 @@ public class TimeMachine {
         int numberOfIterations = societyModel.getYearsToOperate();
         while (numberOfIterations > 0) {
             createNewYear();
-            numberOfIterations =- 1;
+            numberOfIterations -= 1;
         }
     }
 
-    private void createNewYear() {
-        int year = doomsdayBook.getCitizensByYear().size();
+        private void createNewYear() {
+            int year = doomsdayBook.getCitizensByYear().size();
         List<Citizen> citizens = doomsdayBook.clone(year - 1);
         calculateYear(citizens);
         doomsdayBook.getCitizensByYear().put(year, citizens);

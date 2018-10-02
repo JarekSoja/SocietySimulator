@@ -98,6 +98,15 @@ public class DataInputUI extends UI {
         layout.addComponent(chartPresenter);
     }
 
+    private void showSocietyModel() {
+        HorizontalSplitPanel horizontalSplitPanel = new HorizontalSplitPanel();
+        horizontalSplitPanel.setSizeFull();
+        Grid<SocietyModel> grid = new Grid<>(SocietyModel.class);
+        grid.setSizeFull();
+        horizontalSplitPanel.setFirstComponent(grid);
+        layout.addComponent(horizontalSplitPanel);
+    }
+
     public SocietyModel getSocietyModel() {
         return societyModel;
     }
