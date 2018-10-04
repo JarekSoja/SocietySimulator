@@ -12,6 +12,9 @@ public class CitizenCreator {
 
     private List<Citizen> citizensYearZero = new ArrayList<>();
 
+    public CitizenCreator() {
+    }
+
     public void setYearZeroPopulation(DoomsdayBook doomsdayBook, int population, int cash) {
         initializeCitizens(population, cash);
         doomsdayBook.getCitizensByYear().put(0, citizensYearZero);

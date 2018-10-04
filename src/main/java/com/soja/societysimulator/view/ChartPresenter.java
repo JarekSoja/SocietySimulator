@@ -5,21 +5,15 @@ import com.soja.societysimulator.view.charts.BarChart;
 
 
 import com.soja.societysimulator.view.charts.VerticalChart;
-import com.vaadin.annotations.Theme;
 import com.vaadin.server.StreamResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringComponent;
-import com.vaadin.spring.annotation.SpringUI;
-import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Embedded;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-@SpringUI
-@Theme("valo")
 @SpringComponent
-@UIScope
 public class ChartPresenter extends UI {
 
     private VerticalLayout layout;

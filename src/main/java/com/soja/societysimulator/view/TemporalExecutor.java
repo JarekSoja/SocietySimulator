@@ -10,6 +10,9 @@ public class TemporalExecutor {
     private SocietyModel societyModel;
     private DoomsdayBook doomsdayBook;
 
+    public TemporalExecutor() {
+    }
+
     public TemporalExecutor(SocietyModel societyModel) {
         this.societyModel = societyModel;
         this.doomsdayBook = new DoomsdayBook();

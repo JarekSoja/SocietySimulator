@@ -1,19 +1,25 @@
 package com.soja.societysimulator.view;
 
 import com.soja.societysimulator.model.SocietyModel;
+import com.soja.societysimulator.view.charts.VerticalChart;
 import com.vaadin.annotations.Theme;
+import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
+import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringUI
+@SpringView
 @Theme("valo")
-public class DataInputUI extends UI {
+public class DataInputUI extends UI implements View {
 
     private final ChartPresenter chartPresenter;
     private final SocietyModel societyModel;
+
+    private TemporalExecutor temporalExecutor;
 
     private VerticalLayout layout;
 
@@ -24,18 +30,18 @@ public class DataInputUI extends UI {
     }
 
     @Override
-    protected void init(VaadinRequest vaadinRequest) {
+    public void init(VaadinRequest vaadinRequest) {
         setupLayout();
         addHeader();
         addForm();
         addChartPresenter();
         addClearButton();
+      //  VerticalChart.getTestAndDemos();
     }
 
 
     private void setupLayout() {
         layout = new VerticalLayout();
-        setContent(layout);
         layout.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
     }
 
@@ -79,8 +85,8 @@ public class DataInputUI extends UI {
         });
 
         runButton.addClickListener((event) -> {
-            TemporalExecutor executor = new TemporalExecutor(this.societyModel);
-            executor.execute();
+             temporalExecutor = new TemporalExecutor(this.societyModel);
+             temporalExecutor.execute();
         });
 
 
