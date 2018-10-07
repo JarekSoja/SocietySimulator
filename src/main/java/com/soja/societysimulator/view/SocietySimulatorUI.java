@@ -1,47 +1,45 @@
 package com.soja.societysimulator.view;
 
 import com.soja.societysimulator.model.SocietyModel;
-import com.soja.societysimulator.view.charts.VerticalChart;
 import com.vaadin.annotations.Theme;
+import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
-import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringUI
-@SpringView
 @Theme("valo")
-public class DataInputUI extends UI implements View {
+public class SocietySimulatorUI extends UI implements View {
 
-    private final ChartPresenter chartPresenter;
     private final SocietyModel societyModel;
 
-    private TemporalExecutor temporalExecutor;
+    private Navigator navigator;
 
     private VerticalLayout layout;
 
     @Autowired
-    public DataInputUI(ChartPresenter chartPresenter, SocietyModel societyModel) {
-        this.chartPresenter = chartPresenter;
+    public SocietySimulatorUI(SocietyModel societyModel) {
         this.societyModel = societyModel;
+        this.navigator = new Navigator(this, this);
     }
 
     @Override
-    public void init(VaadinRequest vaadinRequest) {
+    protected void init(VaadinRequest vaadinRequest) {
+        getPage().setTitle("Society simulator ver. 0.1");
+        navigator.addView("result", new ChartPresenterView());
         setupLayout();
         addHeader();
         addForm();
-        addChartPresenter();
-        addClearButton();
-      //  VerticalChart.getTestAndDemos();
+      //  addChartPresenter();
     }
 
 
     private void setupLayout() {
         layout = new VerticalLayout();
+        setContent(layout);
         layout.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
     }
 
@@ -85,35 +83,12 @@ public class DataInputUI extends UI implements View {
         });
 
         runButton.addClickListener((event) -> {
-             temporalExecutor = new TemporalExecutor(this.societyModel);
-             temporalExecutor.execute();
+            TemporalExecutor executor = new TemporalExecutor(this.societyModel);
+            executor.execute();
+            navigator.navigateTo("result");
         });
 
 
         layout.addComponent(horizontalLayout);
-    }
-
-    private void addClearButton() {
-        Button clearData = new Button("Clear data");
-        layout.addComponent(clearData);
-        this.societyModel.clear();
-    }
-
-    private void addChartPresenter() {
-        chartPresenter.setWidth("80%");
-        layout.addComponent(chartPresenter);
-    }
-
-    private void showSocietyModel() {
-        HorizontalSplitPanel horizontalSplitPanel = new HorizontalSplitPanel();
-        horizontalSplitPanel.setSizeFull();
-        Grid<SocietyModel> grid = new Grid<>(SocietyModel.class);
-        grid.setSizeFull();
-        horizontalSplitPanel.setFirstComponent(grid);
-        layout.addComponent(horizontalSplitPanel);
-    }
-
-    public SocietyModel getSocietyModel() {
-        return societyModel;
     }
 }
