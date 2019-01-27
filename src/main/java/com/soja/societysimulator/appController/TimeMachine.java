@@ -1,4 +1,4 @@
-package com.soja.societysimulator.controller;
+package com.soja.societysimulator.appController;
 
 import com.soja.societysimulator.model.Citizen;
 import com.soja.societysimulator.model.DoomsdayBook;

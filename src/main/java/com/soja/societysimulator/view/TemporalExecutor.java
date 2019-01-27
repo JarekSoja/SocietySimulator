@@ -1,7 +1,7 @@
 package com.soja.societysimulator.view;
 
-import com.soja.societysimulator.controller.CitizenCreator;
-import com.soja.societysimulator.controller.TimeMachine;
+import com.soja.societysimulator.appController.CitizenCreator;
+import com.soja.societysimulator.appController.TimeMachine;
 import com.soja.societysimulator.model.DoomsdayBook;
 import com.soja.societysimulator.model.SocietyModel;
 

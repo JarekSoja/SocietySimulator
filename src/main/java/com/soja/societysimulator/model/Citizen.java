@@ -1,7 +1,5 @@
 package com.soja.societysimulator.model;
 
-import org.springframework.context.annotation.Configuration;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
