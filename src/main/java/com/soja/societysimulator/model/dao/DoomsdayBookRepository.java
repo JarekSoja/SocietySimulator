@@ -8,4 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 public interface DoomsdayBookRepository extends JpaRepository <DoomsdayBook, Long> {
+
+    DoomsdayBook getDoomsdayBookById(long id);
+
 }

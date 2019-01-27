@@ -8,4 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 public interface SocietyModelRepository extends JpaRepository <SocietyModel, Long> {
+
+    SocietyModel getSocietyModelById(Long id);
+
 }

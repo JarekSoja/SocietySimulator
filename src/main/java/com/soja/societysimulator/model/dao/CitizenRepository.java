@@ -8,4 +8,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 public interface CitizenRepository extends JpaRepository <Citizen, Long> {
+    Citizen getCitizenById(Long id);
 }
