@@ -17,7 +17,7 @@ public class DoomsdayBookController {
         this.doomsdayBookService = doomsdayBookService;
     }
 
-    @GetMapping(value = "/[id]")
+    @GetMapping
     public DoomsdayBook getDoomsdayBookById(@RequestParam("id") Long id) {
         return doomsdayBookService.getDoomsdayBookById(id);
     }

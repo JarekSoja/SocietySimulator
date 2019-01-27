@@ -18,8 +18,8 @@ public class CitizenController {
         this.citizenService = citizenService;
     }
 
-    @GetMapping(value = "/[id]")
-    public Citizen getCitizenById(@RequestParam("bookId") Long id) {
+    @GetMapping
+    public Citizen getCitizenById(@RequestParam("id") Long id) {
         return citizenService.getCitizenById(id);
     }
 }
