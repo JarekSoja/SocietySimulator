@@ -17,7 +17,7 @@ public class TemporalExecutor {
 
     public void execute() {
         CitizenCreator citizenCreator = new CitizenCreator();
-        citizenCreator.setYearZeroPopulation(this.doomsdayBook, this.societyModel.getPopulation(), this.societyModel.getStartingCash());
+        citizenCreator.setYearZeroPopulation(this.doomsdayBook, this.societyModel);
         TimeMachine timeMachine = new TimeMachine(this.societyModel, this.doomsdayBook);
         timeMachine.process();
         System.out.println(this.doomsdayBook.toString());

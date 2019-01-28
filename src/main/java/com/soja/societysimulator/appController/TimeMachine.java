@@ -41,11 +41,11 @@ public class TimeMachine {
 
     private void calculateCash(Citizen citizen) {
         Random random = new Random();
-        int currentCash = citizen.getCash();
+        double currentCash = citizen.getCash();
         boolean addCash = random.nextBoolean();
-        int changeLimit = this.societyModel.getCashChangeByYear();
+        int changeLimit = (int) this.societyModel.getCashChangeByYear();
         int temporalCash = random.nextInt(changeLimit);
-        int finalCash = addCash ? currentCash + temporalCash : currentCash - temporalCash;
+        double finalCash = addCash ? currentCash + temporalCash : currentCash - temporalCash;
         citizen.setCash(finalCash);
     }
 

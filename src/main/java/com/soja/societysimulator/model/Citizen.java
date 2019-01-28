@@ -15,7 +15,7 @@ public class Citizen {
     private Long id;
 
     @Column(name = "CASH_AMOUNT")
-    private int cash;
+    private double cash;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "DOOMSDAY_BOOKS")
@@ -24,7 +24,7 @@ public class Citizen {
     public Citizen() {
     }
 
-    public Citizen(int cash) {
+    public Citizen(double cash) {
         this.cash = cash;
     }
 
@@ -36,11 +36,11 @@ public class Citizen {
         this.id = id;
     }
 
-    public int getCash() {
+    public double getCash() {
         return cash;
     }
 
-    public void setCash(int cash) {
+    public void setCash(double cash) {
         this.cash = cash;
     }
 

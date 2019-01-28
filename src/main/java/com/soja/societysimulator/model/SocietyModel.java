@@ -22,13 +22,19 @@ public class SocietyModel {
     private DoomsdayBook doomsdayBook;
 
     @Column(name = "STARTING_CASH")
-    private int startingCash;
+    private double startingCash;
 
     @Column(name = "STARTING_POPULATION")
     private int population;
 
+    @Column(name = "MEDIAN_STARTING_CASH")
+    private double medianStartingCash;
+
+    @Column(name = "SIGMA_STARTING_CASH")
+    private double sigmaStartingCash;
+
     @Column(name = "CASH_CHANGE")
-    private int cashChangeByYear;
+    private double cashChangeByYear;
 
     @Column(name = "YEARS")
     private int yearsToOperate;
@@ -49,11 +55,11 @@ public class SocietyModel {
         this.doomsdayBook = doomsdayBook;
     }
 
-    public int getStartingCash() {
+    public double getStartingCash() {
         return startingCash;
     }
 
-    public void setStartingCash(int startingCash) {
+    public void setStartingCash(double startingCash) {
         this.startingCash = startingCash;
     }
 
@@ -65,11 +71,11 @@ public class SocietyModel {
         this.population = population;
     }
 
-    public int getCashChangeByYear() {
+    public double getCashChangeByYear() {
         return cashChangeByYear;
     }
 
-    public void setCashChangeByYear(int cashChangeByYear) {
+    public void setCashChangeByYear(double cashChangeByYear) {
         this.cashChangeByYear = cashChangeByYear;
     }
 
@@ -79,6 +85,22 @@ public class SocietyModel {
 
     public void setYearsToOperate(int yearsToOperate) {
         this.yearsToOperate = yearsToOperate;
+    }
+
+    public double getMedianStartingCash() {
+        return medianStartingCash;
+    }
+
+    public void setMedianStartingCash(double medianStartingCash) {
+        this.medianStartingCash = medianStartingCash;
+    }
+
+    public double getSigmaStartingCash() {
+        return sigmaStartingCash;
+    }
+
+    public void setSigmaStartingCash(double sigmaStartingCash) {
+        this.sigmaStartingCash = sigmaStartingCash;
     }
 
     public void clear() {
