@@ -21,4 +21,10 @@ public class SocietyModelController {
     public SocietyModel getSocietyModel(@RequestParam("id") Long id) {
         return societyModelService.getSocietyModelById(id);
     }
+
+    @PostMapping
+    public SocietyModel createSocietyModel(@RequestBody SocietyModel societyModel) {
+        return societyModelService.save(societyModel);
+
+    }
 }

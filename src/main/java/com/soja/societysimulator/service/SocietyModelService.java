@@ -18,4 +18,8 @@ public class SocietyModelService {
     public SocietyModel getSocietyModelById(Long id) {
         return societyModelRepository.getSocietyModelById(id);
     }
+
+    public SocietyModel save(SocietyModel societyModel) {
+        return societyModelRepository.save(societyModel);
+    }
 }
