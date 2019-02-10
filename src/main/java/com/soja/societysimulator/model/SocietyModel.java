@@ -36,6 +36,15 @@ public class SocietyModel {
     @Column(name = "CASH_CHANGE")
     private double cashChangeByYear;
 
+    @Column(name = "MEDIAN_STARTING_HAPPINESS")
+    private double medianStartingHappiness;
+
+    @Column(name = "SIGMA_STARTING_HAPPINESS")
+    private double sigmaStartingHappiness;
+
+    @Column(name = "MAX_LEVEL_OF_HAPPINESS")
+    private double maxLevelOfHappiness;
+
     @Column(name = "YEARS")
     private int yearsToOperate;
 
@@ -101,6 +110,30 @@ public class SocietyModel {
 
     public void setSigmaStartingCash(double sigmaStartingCash) {
         this.sigmaStartingCash = sigmaStartingCash;
+    }
+
+    public double getMedianStartingHappiness() {
+        return medianStartingHappiness;
+    }
+
+    public void setMedianStartingHappiness(double medianStartingHappiness) {
+        this.medianStartingHappiness = medianStartingHappiness;
+    }
+
+    public double getSigmaStartingHappiness() {
+        return sigmaStartingHappiness;
+    }
+
+    public void setSigmaStartingHappiness(double sigmaStartingHappiness) {
+        this.sigmaStartingHappiness = sigmaStartingHappiness;
+    }
+
+    public double getMaxLevelOfHappiness() {
+        return maxLevelOfHappiness;
+    }
+
+    public void setMaxLevelOfHappiness(double maxLevelOfHappiness) {
+        this.maxLevelOfHappiness = maxLevelOfHappiness;
     }
 
     public void clear() {

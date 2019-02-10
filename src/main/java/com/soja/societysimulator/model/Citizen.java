@@ -17,6 +17,9 @@ public class Citizen {
     @Column(name = "CASH_AMOUNT")
     private double cash;
 
+    @Column(name = "HAPPINESS")
+    private double happiness;
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "DOOMSDAY_BOOKS")
     private DoomsdayBook doomsdayBook;
@@ -26,6 +29,11 @@ public class Citizen {
 
     public Citizen(double cash) {
         this.cash = cash;
+    }
+
+    public Citizen(double cash, double happiness) {
+        this.cash = cash;
+        this.happiness = happiness;
     }
 
     public Long getId() {
@@ -52,6 +60,14 @@ public class Citizen {
         this.doomsdayBook = doomsdayBook;
     }
 
+    public double getHappiness() {
+        return happiness;
+    }
+
+    public void setHappiness(double happiness) {
+        this.happiness = happiness;
+    }
+
     public Citizen copy () {
         return new Citizen(this.cash);
     }
@@ -59,7 +75,8 @@ public class Citizen {
     @Override
     public String toString() {
         return "Citizen{" +
-                "cash=" + cash +
+                "cash = " + cash +
+                ", happiness = " + happiness +
                 '}';
     }
 }

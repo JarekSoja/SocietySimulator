@@ -36,6 +36,7 @@ public class TimeMachine {
     private void calculateYear(List<Citizen> citizens) {
         for (Citizen c : citizens) {
             calculateCash(c);
+            calculateHappiness(c);
         }
     }
 
@@ -47,6 +48,15 @@ public class TimeMachine {
         int temporalCash = random.nextInt(changeLimit);
         double finalCash = addCash ? currentCash + temporalCash : currentCash - temporalCash;
         citizen.setCash(finalCash);
+    }
+
+
+    private void calculateHappiness(Citizen citizen) {
+        double happiness;
+        do {
+            happiness = citizen.getCash() / 10;
+        } while (happiness > societyModel.getMaxLevelOfHappiness());
+        citizen.setHappiness(happiness);
     }
 
     public SocietyModel getSocietyModel() {
